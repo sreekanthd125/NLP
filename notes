@@ -1,0 +1,56 @@
+
+# 📘 **Short Notes....
+1. NLP means teaching computers to understand text.
+2. First step is **collecting a paragraph** (your `Paragraph` variable).
+3. Then we **split the paragraph into sentences** using:
+
+   * `nltk.sent_tokenize()` → Sentence Tokenization
+4. Next, each sentence is broken into **words** using Tokenization.
+5. Before training a model, text must be cleaned.
+6. You used **Regex (`re.sub`)** to remove unwanted characters:
+
+   * Removed numbers
+   * Removed punctuation
+   * Kept only letters (a–z, A–Z)
+7. Converted all text to lowercase.
+8. Split the cleaned text into individual words.
+9. Removed **stopwords** like “is”, “the”, “and” using:
+
+   * `stopwords.words('english')`
+10. Performed **Stemming** using PorterStemmer:
+
+* Converted words to their root form
+* Example: *running → run*, *studies → studi*
+
+11. Built a **corpus**, which is a list of all cleaned sentences.
+12. Used **CountVectorizer** to convert text into numbers (Bag of Words).
+13. `cv.fit_transform(corpus)` creates a matrix of word counts.
+14. This matrix is stored in **X**.
+15. Labels (spam/not spam) are stored in **y** (in your later code).
+16. Used `train_test_split()` to divide data:
+
+* **X_train** → Text used for training
+* **X_test** → Text used for testing
+* **y_train** → Correct labels for training data
+* **y_test** → Correct labels for test data
+
+17. Then created a spam detection model using:
+
+* `MultinomialNB()`
+
+18. Trained the model using:
+
+* `.fit(X_train, y_train)`
+
+19. Made predictions on unseen data with:
+
+* `.predict(X_test)`
+
+20. Compared predictions with real answers using accuracy score.
+21. Printed the model’s accuracy (e.g., 0.90 = 90%).
+22. This shows how well your model can detect spam.
+23. The full pipeline:
+
+    * Cleaning → Tokenizing → Stemming → Stopwords → Vectorizing → Splitting → Training → Testing.
+24. These preprocessing steps improve model accuracy.
+25. Without them, raw text would be noisy and hard for ML models to understand.
