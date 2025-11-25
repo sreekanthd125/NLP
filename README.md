@@ -1,2 +1,3 @@
 # NLP
-NLP from beginning
+NLP from beginning 
+toconization stemming lamitazation.
